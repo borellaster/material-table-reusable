@@ -11,19 +11,15 @@ export class AppComponent implements OnInit{
   myColumns: any;
 
   ngOnInit(): void {
-    this.myData = this.getData();
+    this.myData = this.getDataSource();
     this.getColumns();
   }
 
-  getData(): any[] {
+  getDataSource(): any[] {
     return [
       {
         name: 'Felipe',
         mail: 'felipe@gmai.com'
-      },
-      {
-        name: 'Guilherme',
-        mail: 'guilherme@gmail.com'
       },
       {
         name: 'Cecilia',
@@ -35,12 +31,12 @@ export class AppComponent implements OnInit{
   getColumns(): void {
     this.myColumns = [
       {
-        name: 'Name',
-        dataKey: 'name'
+        caption: 'Name',
+        field: 'name'
       },
       {
-        name: 'Mail',
-        dataKey: 'mail'
+        caption: 'Mail',
+        field: 'mail'
       }
     ];
   }

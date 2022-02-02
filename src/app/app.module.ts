@@ -12,12 +12,9 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTabsModule} from "@angular/material/tabs";
-import {DataPropertyPipe} from './table/data-property.pipe';
-
 @NgModule({
   declarations: [
     AppComponent,
-    DataPropertyPipe,
     TableComponent
   ],
   imports: [

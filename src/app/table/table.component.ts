@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TableColumn } from "./TableColumn";
+import { TableColumn } from "./table.column";
 import { MatTableDataSource } from "@angular/material/table";
-
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -9,22 +8,19 @@ import { MatTableDataSource } from "@angular/material/table";
 })
 export class TableComponent implements OnInit {
 
-  public tableDataSource = new MatTableDataSource([]);
+  public _dataSource = new MatTableDataSource([]);
   public displayedColumns: string[];
-  @Input() tableColumns: TableColumn[];
+  @Input() columns: TableColumn[];
 
-  @Input() set tableData(data: any[]) {
-    this.setTableDataSource(data);
-  }
-  constructor() {
+  @Input() set dataSource(data: any[]) {
+    this.setDataSource(data);
   }
 
   ngOnInit(): void {
-    const columnNames = this.tableColumns.map((tableColumn: TableColumn) => tableColumn.name);
-    this.displayedColumns = columnNames;
+    this.displayedColumns = this.columns.map((tableColumn: TableColumn) => tableColumn.caption);
   }
 
-  setTableDataSource(data: any) {
-    this.tableDataSource = new MatTableDataSource<any>(data);
+  setDataSource(data: any) {
+    this._dataSource = new MatTableDataSource<any>(data);
   }
 }
